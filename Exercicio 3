@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Exercicio03 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Digite um número inteiro: ");
+        int numero = entrada.nextInt();
+        entrada.close();
+        if (numero <= 0) {
+            System.out.println("O número é inválido .");
+            return;
+        }
+        int contador = 1;
+        System.out.print("Sequência: ");
+        while (contador <= numero) {
+            System.out.print(contador);
+            if (contador < numero) {
+                System.out.print(" ");
+            }
+            contador++;
+        }
+    }
+}
