@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class Exercicio06 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int TOTAL_ELEITORES = 10;
+        int votosCandidato1 = 0;
+        int votosCandidato2 = 0;
+        int votosCandidato3 = 0;
+        int votosCandidato4 = 0;
+        int votosNulos = 0;
+        int votosBrancos = 0;
+        System.out.println(" Simulação de Votação (10 Eleitores) ");
+        System.out.println("Códigos de Voto:");
+        System.out.println("  1-4: Candidatos | 5: Nulo | 6: Branco");
+        for (int i = 1; i <= TOTAL_ELEITORES; i++) {
+            System.out.print("\nEleitor " + i + "/" + TOTAL_ELEITORES + " - Digite seu voto (1 a 6): ");
+            int voto = entrada.nextInt();
+            switch (voto) {
+                case 1:
+                    votosCandidato1++;
+                    break;
+                case 2:
+                    votosCandidato2++;
+                    break;
+                case 3:
+                    votosCandidato3++;
+                    break;
+                case 4:
+                    votosCandidato4++;
+                    break;
+                case 5:
+                    votosNulos++;
+                    break;
+                case 6:
+                    votosBrancos++;
+                    break;
+                default:
+                    System.out.println("Voto inválido (" + voto + "). Voto não contabilizado.");
+            }
+        }
+        entrada.close();
+        System.out.println(" RESULTADO FINAL DA APURAÇÃO ");
+        System.out.println("\n[a] Total de Votos por Candidato:");
+        System.out.println("  Candidato 1: " + votosCandidato1 + " votos");
+        System.out.println("  Candidato 2: " + votosCandidato2 + " votos");
+        System.out.println("  Candidato 3: " + votosCandidato3 + " votos");
+        System.out.println("  Candidato 4: " + votosCandidato4 + " votos");
+        System.out.println("\n[b, c] Total de Votos Nulos e Brancos:");
+        System.out.println("  Votos Nulos: " + votosNulos + " votos");
+        System.out.println("  Votos em Branco: " + votosBrancos + " votos");
+        double totalNulosEBrancos = votosNulos + votosBrancos;
+        double percentualNulosEBrancos = (totalNulosEBrancos / TOTAL_ELEITORES) * 100;
+        System.out.println("\n[d] Percentual de Votos Brancos e Nulos:");
+        System.out.printf("  Percentual Brancos e Nulos: **%.2f**%%\n", percentualNulosEBrancos);
+    }
+}
