@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Exercicio04 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        double soma = 0;
+        int PessoasMaisDe50 = 0;
+        int TOTAL_PESSOAS = 10;
+        int IDADE_MINIMA = 50;
+        System.out.println(" Média das alturas para pessoas com mais de " + IDADE_MINIMA + " Anos ");
+        for (int i = 1; i <= TOTAL_PESSOAS; i++) {
+            System.out.println("\n Pessoa " + i + " de " + TOTAL_PESSOAS + "  ");
+            System.out.print("Digite a idade: ");
+            int idade = entrada.nextInt();
+            System.out.print("Digite a altura (em metros): ");
+            double altura = entrada.nextDouble();
+            if (idade > IDADE_MINIMA) {
+                soma += altura;
+                PessoasMaisDe50++;
+            }
+        }
+        entrada.close();
+
+        System.out.println("\n Resultado: ");
+        if (PessoasMaisDe50 > 0) {
+            double media = soma / PessoasMaisDe50;
+            System.out.printf("Total de pessoas com mais de %d anos: %d\n", IDADE_MINIMA, PessoasMaisDe50);
+            System.out.printf("A soma das alturas dessas pessoas é: %.2f metros\n", soma);
+            System.out.printf("A média das alturas das pessoas com mais de %d anos é: %.2f metros\n", IDADE_MINIMA, media);
+        } else {
+            System.out.println("Nenhuma das " + TOTAL_PESSOAS + " pessoas digitadas tem mais de " + IDADE_MINIMA + " anos. Não é possível calcular a média.");
+        }
+    }
+}
