@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class Exercicio07 {
+    public static void main (String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int TOTAL_PESSOAS = 10;
+        int contMaioresDe50 = 0;
+        double somaAlturas10a20 = 0;
+        int contPessoas10a20 = 0;
+        int contPesoMenor40 = 0;
+        for (int i = 1; i <= TOTAL_PESSOAS; i++) {
+            System.out.println("\n--- Pessoa " + i + " de " + TOTAL_PESSOAS + " ---");
+            System.out.print("Digite a idade: ");
+            int idade = scanner.nextInt();
+            System.out.print("Digite a altura (em metros, ex: 1.75): ");
+            double altura = scanner.nextDouble();
+            System.out.print("Digite o peso (em quilos, ex: 75.5): ");
+            double peso = scanner.nextDouble();
+            if (idade > 50) {
+                contMaioresDe50++;
+            }
+            if (idade >= 10 && idade <= 20) {
+                somaAlturas10a20 += altura;
+                contPessoas10a20++;
+            }
+            if (peso < 40.0) {
+                contPesoMenor40++;
+            }
+        }
+        scanner.close();
+        System.out.println("\na) Quantidade de pessoas maiores de 50 anos: " + contMaioresDe50 + "**");
+        System.out.print("\nb) Média das alturas de pessoas entre 10 e 20 anos: ");
+        if (contPessoas10a20 > 0) {
+            double mediaAlturas = somaAlturas10a20 / contPessoas10a20;
+            System.out.printf(" %.2f metros (Baseado em %d pessoas)\n", mediaAlturas, contPessoas10a20);
+        } else {
+            System.out.println("Nenhuma pessoa se encaixa na faixa etária de 10 a 20 anos.");
+        }
+        double porcentagemPesoMenor40 = (double) contPesoMenor40 / TOTAL_PESSOAS * 100;
+        System.out.println("\nc) Porcentagem de pessoas com peso inferior a 40 quilos: ");
+        System.out.printf(" %.2f%% (Baseado em %d pessoas)\n", porcentagemPesoMenor40, contPesoMenor40);
+    }
+}
