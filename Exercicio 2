@@ -1,0 +1,15 @@
+public class Exercicio02 {
+    public static void main(String[] args) {
+        int INICIO = 15;
+        int FIM = 100;
+        System.out.println(" O quadrados do números é " + INICIO + " a " + FIM + " ");
+        System.out.println();
+        for (int numero = INICIO; numero <= FIM; numero++) {
+            int quadrado =  numero * numero ;
+            System.out.println("O quadrado de " + numero + " é " + quadrado);
+        }
+
+        System.out.println();
+        System.out.println("--- Fim do Processamento ---");
+    }
+}
